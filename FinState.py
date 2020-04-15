@@ -16,12 +16,12 @@ KEYWORDS = {"balance sheet" : ['balance sheet'],
             "cash flow" : ['cash'],
             }
 
-STOPWORDS = ("comprehensive", "tax", "parenthetical")
+# STOPWORDS = ("comprehensive", "tax", "parenthetical")
 
-nyt_data = "C:\\Users\\ajste\\OneDrive\\Documents\\NU 3\\Spring\\BUS INST 301\\Project\\Data"
+# nyt_data = directory path to folder containing excel reports
 
 
-
+# returns the file names of all financial reports in the given directory.
 def get_xlsx_data(path):
     statements = os.listdir(path)
     if statements == []:
@@ -44,7 +44,7 @@ def findsheet(workbook, keyword):
     
     raise Exception("Couldn't find a " + keyword + " worksheet in the report")
 
-
+# checks the first cell in excel sheet for any keyword matches
 def a1_match(sheet, keywords):
     
     a1 = sheet['A1'].value.lower()
@@ -58,7 +58,8 @@ def a1_match(sheet, keywords):
 
 class Company:
     
-    def __init__(self, data_path): # takes the address of a directory holding all SEC financial reports
+    # takes the absolute path to the directory holding all SEC financial reports
+    def __init__(self, data_path): 
         os.chdir(data_path)
         xlsxs = get_xlsx_data(data_path)
         self.path = data_path
@@ -68,6 +69,7 @@ class Company:
         self.get_income_statements(xlsxs)
         # Potentially could include cash flows, equity statements
    
+    # parses present excel files for all balance sheet info, adds to relevant dataframe
     def get_balance_sheets(self, xlsxs):
         counter = 0
         for file in xlsxs:
@@ -84,6 +86,7 @@ class Company:
                 frames = [self.balance_sheet, temp_frame.iloc[:,2]]
                 self.balance_sheet = pd.concat(frames, axis = 1)
    
+    # parses present excel files for all income statement info, adds to relevant dataframe
     def get_income_statements(self, xlsxs):
         counter = 0
         for file in xlsxs:
