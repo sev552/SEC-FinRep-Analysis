@@ -118,6 +118,7 @@ class Company:
             else:
                 frames = [self.income_statement, temp_frame.iloc[:,2]]
                 self.income_statement = pd.concat(frames, axis = 1)
+                
             counter += 1
      
     
