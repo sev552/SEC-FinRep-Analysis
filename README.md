@@ -15,11 +15,11 @@
       - Current Ratio
       - Acid Test Ratio
 
-  **WARNING** : Currently reliant on local organization of excel files - I don't care where you put the folder but for successful use:\n
-      - Put all financial reports in a single folder solely for the .xlsx files
-      - *STANDARDIZE* names in this form:
-        - For a given fiscal year** \<YEAR\> and company \<NAME\>, the financial report should be renamed:
-          - "FY\<YEAR\>\_\<NAME\>\_Report.xlsx"
+**WARNING** : Currently reliant on local organization of excel files - I don't care where you put the folder but for successful use.
+  - Put all financial reports in a single folder solely for the .xlsx files
+  - *STANDARDIZE* names in this form:
+    - For a given fiscal year** \<YEAR\> and company \<NAME\>, the financial report should be renamed:
+      - "FY\<YEAR\>\_\<NAME\>\_Report.xlsx"
 
 
 **Motivation** :
